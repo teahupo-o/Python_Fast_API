@@ -18,8 +18,7 @@ This project is a REST API built with FastAPI for managing a library system. It 
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/your-repo/library-api.git
-   cd library-api
+   https://github.com/teahupo-o/Python_Fast_API.git
    ```
 
 2. Install the dependencies:
