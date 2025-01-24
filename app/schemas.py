@@ -1,5 +1,6 @@
 from pydantic import BaseModel
 
+
 class NewBook(BaseModel):
     name: str
     isbn: str

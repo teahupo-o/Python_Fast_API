@@ -1,17 +1,13 @@
+from fastapi import FastAPI, Depends
 from sqlalchemy.orm import Session
 from starlette import status
 from typing import Annotated
-
 from app import schemas
 
 from . import models
-
-from fastapi import FastAPI, Depends
-
 from . import database
 
 app = FastAPI()
-
 database.Base.metadata.create_all(database.engine)
 
 def get_db():
@@ -21,6 +17,7 @@ def get_db():
         yield db
     finally:
         db.close()
+
 
 db_dependency = Annotated[Session, Depends(get_db)]
 
@@ -57,6 +54,7 @@ async def add_book(db: db_dependency, book_request: schemas.NewBook):
     new_book = models.Book(**book_request.model_dump())
     db.add(new_book)
     db.commit()
+
 
 @app.post("/book_loan", status_code=status.HTTP_201_CREATED)
 async def add_loan(db: db_dependency, book_loan_request: schemas.NewBookLoan):
