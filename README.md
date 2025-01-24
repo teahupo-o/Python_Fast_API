@@ -28,7 +28,7 @@ This project is a REST API built with FastAPI for managing a library system. It 
 
 3. Start the server:
    ```bash
-   uvicorn main:app --reload
+   uvicorn app.main:app --reload
    ```
 
 4. Access the API at `http://127.0.0.1:8000`.
